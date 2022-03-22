@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(120deg, #2421cc 30%, #629df5 80%);
+    min-height: 100vh;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+header, section.container, .todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+header {
+    margin: 2rem 0;
+}
+
+section {
+    min-height: 30vh;
+    padding: 0.5rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+form.form-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input, form button, select {
+    padding: 0.5rem;
+}
+
+form input, form button {
+    padding: 0.5rem;
+    background-color: #fff;
+    font-size: 2rem;
+    border: none;
+}
+
+form .submit-btn, form .clear-btn, form .update-btn {
+    background: #fff;
+}
+
+form .submit-btn:hover, form .clear-btn:hover, form .update-btn:hover {
+    color: #fff;
+}
+
+form .submit-btn {
+    color: rgb(21, 21, 255);
+}
+
+form .hidden {
+    display: none;
+}
+
+form .submit-btn:hover {
+    background-color: rgb(21, 21, 255);
+}
+form .update-btn {
+    color: green;
+}
+
+form .update-btn:hover {
+    background-color: green;
+}
+
+form .clear-btn {
+    color: rgb(224, 15, 15);
+}
+
+form .clear-btn:hover {
+    background-color: rgb(224, 15, 15);
+}
+
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    width: 10rem;
+    cursor: pointer;
+    padding: 1rem 0.4rem;
+
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    background: rgb(21, 21, 255);
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.select:hover::after {
+    background: #fff;
+    color:rgb(21, 21, 255);
+}
+
+ul.todos {
+    margin: 0.7rem 0;
+}
+
+ul.todos li {
+    list-style: none;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo {
+    margin: 0.5rem;
+    background: #fff;
+    color: black;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid #fff;
+}
+
+.trash-btn {
+    background-color: rgb(21, 21, 255);
+}
+.edit-btn {
+    background-color: green;
+}
+
+.complete-btn {
+    background-color: orangered;
+}
+.trash-btn, .edit-btn, .complete-btn {
+    position: relative;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.fa-square-check, .fa-pen-to-square, .fa-trash {
+    pointer-events: none;
+}
+
+.trash-btn::after {
+    content: "delete";
+}
+
+.edit-btn::after {
+    content: "edit";
+}
+
+.complete-btn::after {
+    content: "complete";
+}
+
+.trash-btn::after, .edit-btn::after, .complete-btn::after {
+    position: absolute;
+    font-size: 0.7rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgb(41, 41, 41);
+    height: 20px;
+    padding: 0 4px;
+    top: -25px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    font-family: "Poppins", sans-serif;
+    visibility: hidden;
+}
+
+.trash-btn:hover::after, .edit-btn:hover::after, .complete-btn:hover::after {
+    visibility: visible;
+}
+.todo .todo-item {
+    flex: 1;
+    list-style: none;
+    word-wrap: break-word;
+    padding: 0.5rem;
+}
+
+.fall {
+    transition: all 0.8s ease;
+    transform: translateX(8rem) ;
+    opacity: 0;
+}
+.completed {
+    color: rgb(44, 44, 43);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* Responsive */
+
+@media (max-width: 750px) {
+    form input, form button {
+        padding: 0.2rem 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    select {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .todos {
+        width: 90%;
+    }
+    .todos .todo {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    
+    .trash-btn, .edit-btn, .complete-btn {
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+    .select::after {
+        padding: 0.5rem 0.25rem;
+    }
+}
+
+@media (max-width: 600px) {
+    form input, form button {
+        padding: 0.4rem 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .todos .todo {
+        font-size: 0.9rem;
+    }
+
+    .todo li {
+        margin-right: 1rem;
+    }
+}
